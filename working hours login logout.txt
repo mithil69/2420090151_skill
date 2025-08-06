@@ -1,0 +1,18 @@
+package myproject;
+
+import java.time.*;
+
+public class loginlogout
+{
+    public static void main(String[] args) {
+        LocalTime start = LocalTime.of(9, 0), end = LocalTime.of(18, 0);
+        LocalTime in = LocalTime.of(9, 15), out = LocalTime.of(17, 45);
+
+        System.out.println("Office Hours: " + start + " to " + end);
+        System.out.println("Employee Logged In: " + in + "\nEmployee Logged Out: " + out);
+        System.out.println((in.isBefore(start) || in.isAfter(end)) ? "Login time is outside office hours!" : "Login time is within office hours.");
+
+        Duration d = Duration.between(in, out);
+        System.out.println("Total Working Time: " + d.toHours() + " hours " + (d.toMinutes() % 60) + " minutes");
+    }
+}
